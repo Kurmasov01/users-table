@@ -8,9 +8,9 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "server": "json-server -w server/db.json -p 3001"
-    
   },
   "dependencies": {
+    "axios": "^1.13.5",
     "pinia": "^3.0.4",
     "vue": "^3.5.25"
   },
@@ -18,7 +18,7 @@
     "@types/node": "^24.10.13",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vue/tsconfig": "^0.8.1",
-    "json-server": "^1.0.0-beta.5",
+    "json-server": "^1.0.0-beta.12",
     "sass": "^1.97.3",
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
