@@ -2,7 +2,7 @@
     <div class="section">
         <div class="search">
             <div class="search__wrapper">
-                <input class="search__input" type="text" :placeholder="placeholder" :value="modelValue"
+                <input class="search__input" type="text" :placeholder="placeholder"
                     @keyup.enter="onInput" />
             </div>
         </div>
@@ -10,8 +10,11 @@
 </template>
 
 <script setup lang="ts">
+import { useUsersStore } from '@/store/usersStore'
+
+const store = useUsersStore()
+
 interface Props {
-    modelValue: string
     placeholder?: string
 }
 
@@ -19,13 +22,10 @@ const props = withDefaults(defineProps<Props>(), {
     placeholder: 'Поиск...'
 })
 
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: string): void
-}>()
-
 function onInput(event: Event) {
     const target = event.target as HTMLInputElement
-    emit('update:modelValue', target.value)
+    store.search = target.value;
+    store.loadUsers()
 }
 </script>
 
