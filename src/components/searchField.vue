@@ -14,11 +14,11 @@ import { useUsersStore } from '@/store/usersStore'
 
 const store = useUsersStore()
 
-interface Props {
+interface SearchFieldProps {
     placeholder?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const searchFieldProps = withDefaults(defineProps<SearchFieldProps>(), {
     placeholder: 'Поиск...'
 })
 
