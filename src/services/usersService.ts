@@ -1,15 +1,22 @@
-import axios from 'axios'
+import { httpClient } from '@/services/httpClient'
 
 interface FetchUsersParams {
-  search?: string
-  page?: number
-  limit?: number
+  search: string
+  page: number
+  limit: number
   sortBy: string
   sortOrder: string
 }
 
-export const fetchUsers = async (params?: FetchUsersParams) => {
-  const { data } = await axios.get(`http://localhost:3001/users?fio:contains=${params?.search}&_page=${params?.page}&_per_page=10&_sort=${params?.sortOrder}${params?.sortBy}`)
-  console.log(data)
+export const fetchUsers = async (params: FetchUsersParams) => {
+  const queryParams = new URLSearchParams()
+
+  queryParams.append("fio:contains", params.search)
+  queryParams.append("_page", String(params.page))
+  queryParams.append("_per_page", String(params.limit))
+  queryParams.append("_sort", params.sortOrder + params.sortBy)
+
+  const { data } = await httpClient.get(`/users?${queryParams.toString()}`)
+
   return data
 }
