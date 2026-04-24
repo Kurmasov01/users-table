@@ -84,3 +84,62 @@ function changeSort(sortColumn: string) {
   usersStore.loadUsers()
 }
 </script>
+
+<style lang="scss" scoped>
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &__head {
+    background: #f9fafb;
+  }
+
+  &__row {
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: #f3f4f6;
+    }
+  }
+
+  &__cell {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #111827;
+    white-space: nowrap;
+  }
+
+  &__header-cell {
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    user-select: none;
+  }
+
+  &__sort-btn {
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #9ca3af;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #111827;
+    }
+  }
+
+  &__sort--active {
+    color: #111827;
+    font-weight: 600;
+  }
+}
+</style>

@@ -77,3 +77,69 @@ const pagesWithDots = computed(function () {
     return result
 })
 </script>
+
+<style lang="scss" scoped>
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+
+    &__item {
+        display: flex;
+
+        button {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+
+            &:hover {
+                background: #f3f4f6;
+            }
+
+            &:active {
+                background: #e5e7eb;
+            }
+        }
+    }
+
+    &__item--active button {
+        background: #175e48;
+        color: #fff;
+        border-color: #111827;
+        cursor: default;
+
+        &:hover {
+            background: #175e48;
+        }
+    }
+
+    &__item--disabled button {
+        opacity: 0.5;
+        cursor: default;
+
+        &:hover {
+            background: #fff;
+            border-color: #e5e7eb;
+        }
+    }
+
+    &__dots {
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        color: #9ca3af;
+        font-size: 14px;
+    }
+}
+</style>
