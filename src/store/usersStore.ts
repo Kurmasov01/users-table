@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import type { User } from "@/types/User";
 import { fetchUsers } from "@/services/usersService";
-import { computed } from "vue";
 
 export const useUsersStore = defineStore("usersData", {
   state: () => ({
@@ -42,7 +41,6 @@ export const useUsersStore = defineStore("usersData", {
       } finally {
         this.isLoading = false;
       }
-      console.log(this.isLoading);
     },
   },
 });
