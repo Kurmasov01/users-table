@@ -8,7 +8,7 @@ interface FetchUsersParams {
   sortOrder: string
 }
 
-export const fetchUsers = async (params: FetchUsersParams) => {
+export const fetchUsers = async function (params: FetchUsersParams) {
   const queryParams = new URLSearchParams()
 
   queryParams.append("fio:contains", params.search)
